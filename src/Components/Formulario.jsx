@@ -12,7 +12,7 @@ const Formulario = () => {
     const[Cedula, setCedula] = useState('');
     const[Edad, setEdad] = useState('');
     const Image = ('https://picsum.photos/40');
-    //const[id, setId] = useState(0);
+    const[id, setId] = useState(0);
     const[Edicion, setEdicion] = useState(false);
     const[Lista, setLista] = useState([]);
 
@@ -72,6 +72,14 @@ const Formulario = () => {
         //console.log(Elemento);
     }
 
+    const Eliminar = async id =>{
+        try {
+            await deleteDoc(doc(db,'Elemento',id));
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 
     
 
@@ -89,7 +97,7 @@ const Formulario = () => {
                                 <li className="list-group-item" key={item.id}>
                                     <span className="lead font-size:2px"><img src={item.img}/> {item.nombreElemento} - {item.nombreApellido} 
                                     - {item.numeroCelular} - {item.numeroCedula} - {item.numeroEdad} - {item.nombrePais} -  {item.nombreDescripcion} </span>
-                                    <button className="btn btn-danger btn-sm float-end mx-2" onClick=''/*{()=> /*Eliminar(item.id)}*/>Eliminar</button>
+                                    <button className="btn btn-danger btn-sm float-end mx-2" onClick={()=>Eliminar(item.id)}>Eliminar</button>
                                     <button className="btn btn-warning btn-sm float-end" onClick=''/*{()=> Editar(item)}*/>Editar</button>
                                 </li>
 
