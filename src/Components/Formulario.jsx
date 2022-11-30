@@ -141,6 +141,18 @@ const Formulario = () => {
             console.log(error);
         }
     }
+
+    const Cancelar = () =>{
+        setEdicion(false);
+        setElemento('');
+        setDescripcion('');
+        setApellido('');
+        setPais('');
+        setCedula('');
+        setNumero('');
+        setEdad('');
+        setId('');
+    }
     
 
 
@@ -185,7 +197,7 @@ const Formulario = () => {
                             <>
                            
                                 <button className="btn btn-warning btn-block" on="submit">Editar</button>
-                                <button className="btn btn-dark btn-block mx-2" onClick=''/*{()=>Cancelar()}*/>Cancelar</button>
+                                <button className="btn btn-dark btn-block mx-2" onClick={()=>Cancelar()}>Cancelar</button>
                             
                             </>
                         )
