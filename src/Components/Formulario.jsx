@@ -187,16 +187,16 @@ const Formulario = () => {
                 <h4 className="text-center"> { Edicion ? 'Edicion Elemento':'Agregar Elemento'}</h4>
                 <form onSubmit={ Edicion ? EditarElemento :  guardarElement}>
                     
-                    <input type="text" className="form-control mb-2" placeholder="Ingrese Nombre Persona" required pattern="[a-zA-Z]+"  value={Elemento} onChange={(e)=>setElemento(e.target.value)}/>
-                    <input type="text" className="form-control mb-2" placeholder="Ingrese Apellido Persona" required pattern="[a-zA-Z]+" value={Apellido} onChange={(e)=>setApellido(e.target.value)}/>
+                    <input type="text" className="form-control mb-2" placeholder="Ingrese Nombre Persona"  pattern="[a-zA-Z]+++" required value={Elemento} onChange={(e)=>setElemento(e.target.value)}/>
+                    <input type="text" className="form-control mb-2" placeholder="Ingrese Apellido Persona"  pattern="[a-zA-Z]+++" required value={Apellido} onChange={(e)=>setApellido(e.target.value)}/>
                     <input type="number" className="form-control mb-2" placeholder="Ingrese Numero Celular" ondrop="return false;" onpaste="return false;"
                         onkeypress="return event.charCode>=48 && event.charCode<=57" required value={Numero} onChange={(e)=>setNumero(e.target.value)}/>
                     <input type="number" className="form-control mb-2" placeholder="Ingrese Numero Cedula" ondrop="return false;" onpaste="return false;"
                         onkeypress="return event.charCode>=48 && event.charCode<=57" required value={Cedula} onChange={(e)=>setCedula(e.target.value)}/>
                     <input type="number" className="form-control mb-2" placeholder="Ingrese Edad Persona" ondrop="return false;" onpaste="return false;"
                         onkeypress="return event.charCode>=48 && event.charCode<=57" required value={Edad} onChange={(e)=>setEdad(e.target.value)}/>
-                    <input type="text" className="form-control mb-2" placeholder="Ingrese Pais Origen" required pattern="[a-zA-Z]+" value={Pais} onChange={(e)=>setPais(e.target.value)}/>
-                    <input type="text" className="form-control mb-2" placeholder="Ingrese Descripcion Persona" pattern="[a-zA-Z]+" required value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)}/>
+                    <input type="text" className="form-control mb-2" placeholder="Ingrese Pais Origen"  pattern="[a-zA-Z]+++" required value={Pais} onChange={(e)=>setPais(e.target.value)}/>
+                    <input type="text" className="form-control mb-2" placeholder="Ingrese Descripcion Persona" required value={Descripcion} onChange={(e)=>setDescripcion(e.target.value)}/>
                     {
                         Edicion ?
                         (
