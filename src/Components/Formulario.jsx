@@ -81,6 +81,20 @@ const Formulario = () => {
 
     }
 
+    const Editar = item =>{
+        setElemento(item.nombreElemento);
+        setDescripcion(item.nombreDescripcion);
+        //setElemento('');
+        //setDescripcion('');
+        setApellido(item.nombreApellido);
+        setPais(item.nombrePais);
+        setCedula(item.numeroCedula);
+        setNumero(item.numeroCelular);
+        setEdad(item.numeroEdad);
+        setId(item.id);
+        //Image('');
+        setEdicion(true);
+    }
     
 
 
@@ -98,7 +112,7 @@ const Formulario = () => {
                                     <span className="lead font-size:2px"><img src={item.img}/> {item.nombreElemento} - {item.nombreApellido} 
                                     - {item.numeroCelular} - {item.numeroCedula} - {item.numeroEdad} - {item.nombrePais} -  {item.nombreDescripcion} </span>
                                     <button className="btn btn-danger btn-sm float-end mx-2" onClick={()=>Eliminar(item.id)}>Eliminar</button>
-                                    <button className="btn btn-warning btn-sm float-end" onClick=''/*{()=> Editar(item)}*/>Editar</button>
+                                    <button className="btn btn-warning btn-sm float-end" onClick={()=> Editar(item)}>Editar</button>
                                 </li>
 
                             ))
@@ -107,7 +121,7 @@ const Formulario = () => {
                 </div>
             <div className=" container col-4">
                 <h4 className="text-center"> { Edicion ? 'Edicion Elemento':'Agregar Elemento'}</h4>
-                <form onSubmit={ /*Edicion ? EditarElemento :*/  guardarElement}>
+                <form onSubmit={ Edicion ? EditarElemento :  guardarElement}>
                     
                     <input type="text" className="form-control mb-2" placeholder="Ingrese Nombre Persona" required pattern="[a-zA-Z]+"  value={Elemento} onChange={(e)=>setElemento(e.target.value)}/>
                     <input type="text" className="form-control mb-2" placeholder="Ingrese Apellido Persona" required pattern="[a-zA-Z]+" value={Apellido} onChange={(e)=>setApellido(e.target.value)}/>
