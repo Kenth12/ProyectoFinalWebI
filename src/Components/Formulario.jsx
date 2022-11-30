@@ -173,7 +173,7 @@ const Formulario = () => {
                         {
                             Lista.map(item => (
                                 <li className="list-group-item" key={item.id}>
-                                    <span className="lead font-size:2px"><img src={item.img}/> {item.nombreElemento} - {item.nombreApellido} 
+                                    <span className="lead font-size:2px"><img src={item.img} alt=''/> {item.nombreElemento} - {item.nombreApellido} 
                                     - {item.numeroCelular} - {item.numeroCedula} - {item.numeroEdad} - {item.nombrePais} -  {item.nombreDescripcion} </span>
                                     <button className="btn btn-danger btn-sm float-end mx-2" onClick={()=>Eliminar(item.id)}>Eliminar</button>
                                     <button className="btn btn-warning btn-sm float-end" onClick={()=> Editar(item)}>Editar</button>
