@@ -95,6 +95,52 @@ const Formulario = () => {
         //Image('');
         setEdicion(true);
     }
+
+    const EditarElemento = async e =>{
+        e.preventDefault();
+        //const Image='https://picsum.photos/40';
+        try {
+            const docRef = doc(db,'Elemento',id);
+            await updateDoc(docRef,{
+                nombreElemento: Elemento,
+                nombreApellido: Apellido,
+                nombreDescripcion: Descripcion,
+                numeroCedula: Cedula,
+                numeroEdad: Edad,
+                numeroCelular: Numero,
+                nombrePais: Pais, 
+                img: Image,
+
+            });
+            const Array = Lista.map(
+                item => item.id === id ? {
+                    id:id, 
+                    nombreElemento:Elemento, 
+                    nombreDescripcion:Descripcion, 
+                    nombreApellido:Apellido, 
+                    numeroCedula: Cedula,
+                    numeroEdad: Edad,
+                    numeroCelular: Numero,
+                    nombrePais: Pais, 
+                    img:Image, 
+                }
+                :
+                item
+            );
+            setLista(Array);
+            setElemento('');
+            setApellido('');
+            setNumero('');
+            setEdad('');
+            setCedula('');
+            setPais('');
+            setDescripcion('');
+            setId('');
+            setEdicion(false);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     
 
 
