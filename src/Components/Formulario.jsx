@@ -16,9 +16,23 @@ const Formulario = () => {
     const[Edicion, setEdicion] = useState(false);
     const[Lista, setLista] = useState([]);
 
-
-
     
+    useEffect(()=>{
+       const obtenerDatos = async () =>{
+        try {
+            await onSnapshot(collection(db,'Elemento'), (query)=>{
+                setLista(query.docs.map((doc) => ({...doc.data(), id:doc.id,})));
+            });
+        } catch (x) {
+           console.log(x);
+        }
+       }
+       obtenerDatos();
+       //console.log(Lista);
+    },[]);
+
+   
+
     const guardarElement = async (e) =>  {
         e.preventDefault();
        //const Image='https://picsum.photos/40'; 
@@ -57,6 +71,8 @@ const Formulario = () => {
         }
         //console.log(Elemento);
     }
+
+
     
 
 
