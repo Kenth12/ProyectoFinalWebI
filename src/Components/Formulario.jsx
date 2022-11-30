@@ -1,3 +1,4 @@
+// Se importan los componentes de React y Firebase
 import React,{useState,useEffect} from "react";
 import {db} from '../Firebase';
 import {collection , doc , addDoc, onSnapshot, deleteDoc, updateDoc } from "firebase/firestore";
@@ -16,7 +17,7 @@ const Formulario = () => {
     const[Edicion, setEdicion] = useState(false);
     const[Lista, setLista] = useState([]);
 
-    
+// Se usa useEddect y se crea un metodo para obtener los datos de firebase
     useEffect(()=>{
        const obtenerDatos = async () =>{
         try {
@@ -32,7 +33,7 @@ const Formulario = () => {
     },[]);
 
    
-
+// Se crea un metodo para guardar los datos y enviarlos a firebase
     const guardarElement = async (e) =>  {
         e.preventDefault();
        //const Image='https://picsum.photos/40'; 
@@ -72,6 +73,7 @@ const Formulario = () => {
         //console.log(Elemento);
     }
 
+// Se crea un metodo para Eliminar las lista de firebase
     const Eliminar = async id =>{
         try {
             await deleteDoc(doc(db,'Elemento',id));
@@ -81,6 +83,7 @@ const Formulario = () => {
 
     }
 
+// Se crea un metodo para setear los datos a los campos
     const Editar = item =>{
         setElemento(item.nombreElemento);
         setDescripcion(item.nombreDescripcion);
@@ -96,6 +99,7 @@ const Formulario = () => {
         setEdicion(true);
     }
 
+// Se crea un metodo para editar los datos dentro de los campos y guardarlos nuevamente en firebase
     const EditarElemento = async e =>{
         e.preventDefault();
         //const Image='https://picsum.photos/40';
@@ -142,6 +146,7 @@ const Formulario = () => {
         }
     }
 
+// Se crea un metodo para cancelar y no toque la informacion
     const Cancelar = () =>{
         setEdicion(false);
         setElemento('');
@@ -155,8 +160,9 @@ const Formulario = () => {
     }
     
 
-
+// Retorno de el formulario en HTML
     return (
+        // Creacion del CRUD
         <div className=" container mt-5">
             <h1 className="text-center">Crud Desarrollo</h1>
             <hr />
